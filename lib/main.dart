@@ -26,6 +26,21 @@ class _CounterWidgetState extends State<CounterWidget> {
   // set counter value
   int _counter = 0;
 
+  Widget igniteButton() {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          _counter++;
+        });
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.red,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      ),
+      child: const Text('Ignite'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +71,7 @@ class _CounterWidgetState extends State<CounterWidget> {
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
           ),
+          igniteButton(),
         ],
       ),
     );
