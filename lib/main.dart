@@ -25,12 +25,17 @@ class CounterWidget extends StatefulWidget {
 class _CounterWidgetState extends State<CounterWidget> {
   // set counter value
   int _counter = 0;
+  int _maxCounterForLaunch = 100;
 
   Widget igniteButton() {
     return ElevatedButton(
       onPressed: () {
         setState(() {
-          _counter++;
+          if (_counter < _maxCounterForLaunch) {
+            _counter++;
+          } else {
+            _counter = _maxCounterForLaunch;
+          }
         });
       },
       style: ElevatedButton.styleFrom(
@@ -78,19 +83,27 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   Widget buildCounterDisplay() {
     Color backgroundColor;
+    String displayText;
+
     if (_counter == 0) {
       backgroundColor = Colors.red;
+      displayText = '$_counter';
     } else if (_counter <= 50) {
       backgroundColor = Colors.orange;
-    }  else {
+      displayText = '$_counter';
+    }  else if (_counter < _maxCounterForLaunch) {
       backgroundColor = Colors.green;
-    }
+      displayText = '$_counter';
+    }  else {
+        backgroundColor = Colors.green;
+        displayText = 'LIFTOFF!';
+      }
 
     return Container(
       color: backgroundColor,
       padding: const EdgeInsets.all(20.0),
       child: Text(
-        '$_counter',
+        displayText,
         style: const TextStyle(
             fontSize: 50.0,
             color: Colors.white,
