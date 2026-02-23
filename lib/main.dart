@@ -76,6 +76,29 @@ class _CounterWidgetState extends State<CounterWidget> {
     );
   }
 
+  Widget buildCounterDisplay() {
+    Color backgroundColor;
+    if (_counter == 0) {
+      backgroundColor = Colors.red;
+    } else if (_counter <= 50) {
+      backgroundColor = Colors.orange;
+    }  else {
+      backgroundColor = Colors.green;
+    }
+
+    return Container(
+      color: backgroundColor,
+      padding: const EdgeInsets.all(20.0),
+      child: Text(
+        '$_counter',
+        style: const TextStyle(
+            fontSize: 50.0,
+            color: Colors.white,
+            fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,13 +109,8 @@ class _CounterWidgetState extends State<CounterWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Container(
-              color: Colors.blue,
-              child: Text(
-                '$_counter',
-                style: const TextStyle(fontSize: 50.0),
-              ),
-            ),
+            child:
+              buildCounterDisplay(),
           ),
           Slider(
             min: 0,
