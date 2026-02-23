@@ -41,6 +41,41 @@ class _CounterWidgetState extends State<CounterWidget> {
     );
   }
 
+  Widget decrementButton() {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          if (_counter > 0) {
+            _counter--;
+          }
+          else {
+            _counter = 0;
+          }
+        });
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.orange,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      ),
+      child: const Text('Decrement'),
+    );
+  }
+
+  Widget abortButton() {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          _counter = 0;
+        });
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.grey,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      ),
+      child: const Text('Abort'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +107,8 @@ class _CounterWidgetState extends State<CounterWidget> {
             inactiveColor: Colors.red,
           ),
           igniteButton(),
+          decrementButton(),
+          abortButton(),
         ],
       ),
     );
