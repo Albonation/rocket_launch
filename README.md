@@ -1,17 +1,15 @@
 # rocket_launch
 
-A new Flutter project.
+Critical Thinking Questions:
 
-## Getting Started
+1. At zero the color status was red. Pressing the button made the color status
+yellow and it stayed yellow until seven. Moving the slider changed the color status
+once the counter reached 50, where it changed to green. Pressing decrement changed
+the color status back to yellow.
+2. When pressing the decrement button while the counter is at zero, a conditional
+either decrements counter or sets counter to zero and setState() is just 
+rebuilding the UI with what counter is set to. The increment button increments the counter by one, unless it reaches 100
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. My app switches to "LIFTOFF!" when the counter reaches 100. I did this by using
+a widget to display the counter and color status, and conditionally displaying the
+text "LIFTOFF!" if the counter is 100.
