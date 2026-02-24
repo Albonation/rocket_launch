@@ -13,3 +13,6 @@ rebuilding the UI with what counter is set to. The increment button increments t
 3. My app switches to "LIFTOFF!" when the counter reaches 100. I did this by using
 a widget to display the counter and color status, and conditionally displaying the
 text "LIFTOFF!" if the counter is 100.
+
+Video demonstration of app:
+<video src="rocket_launch.mp4" controls width="320" height="568"></video>
